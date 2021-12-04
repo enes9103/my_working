@@ -1,0 +1,660 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>NETWORK</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="31d7f956-b964-4777-9ee8-4d4eeb5be4d3" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_ibm_type_704.jpg" style="object-position:center 19.999999999999996%"/><h1 class="page-title">NETWORK</h1></header><div class="page-body"><h2 id="6754184b-84cc-4e35-9df2-88535d197dbf" class="">A. NETWORK ( AĞ ) NEDİR ?</h2><p id="a08bd263-96b9-4982-8588-1ccc2b311b92" class="">
+</p><hr id="b90afbe2-5668-4192-aa3b-221c401bfd3a"/><ul id="45047e59-fd7e-4fde-aad6-0220490b013b" class="bulleted-list"><li style="list-style-type:disc">Bir bilgisayar <strong>ağı</strong> , verileri paylaşmak için birbirine bağlı bilgisayarlar, sunucular, ağ cihazları, çevre birimleri veya diğer cihazlar topluluğudur. Bir bilgisayar ağı, teorik ve pratik yönlerini eyleme geçiren Elektrik Mühendisliği, Bilgisayar Bilimi, Telekomünikasyon, Bilgisayar Mühendisliği ve Bilgi Teknolojisinin ortak bir sonucudur. Günümüzde en yaygın olarak kullanılan Bilgisayar Ağı, World Wide Web&#x27;i (WWW) destekleyen İnternet&#x27;tir.</li></ul><figure id="04e373a8-4556-418f-9fd7-066a20264af8" class="image"><a href="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled.png"><img style="width:528px" src="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled.png"/></a></figure><ul id="5d68ac94-2ce7-4b35-b3d4-242d7262270e" class="bulleted-list"><li style="list-style-type:disc">Farklı boyutlardaki ağlar farklı şekillerde sınıflandırılır.</li></ul><ul id="ceab5d41-23ee-4689-9068-b086cde15b5e" class="bulleted-list"><li style="list-style-type:disc">Tek bir konumdaki bir ağa genellikle<strong> Yerel Alan Ağı (LAN</strong>) denir. Hem birkaç bilgisayarlı ev ağlarını hem de yüzlerce sunucu ve binlerce bilgisayar içeren kurumsal ağları içerebilir.</li></ul><ul id="7f4ab66e-59b0-4e4b-87da-3253cd23e9ac" class="bulleted-list"><li style="list-style-type:disc">Farklı coğrafi konumlardaki ancak paylaşılan bağlantılara sahip ağlara <strong>Geniş Alan Ağları (WAN)</strong> denir <strong>.</strong></li></ul><ul id="b242e3a4-68e7-4924-accd-b57c8dd552a0" class="bulleted-list"><li style="list-style-type:disc">(<strong>Performance) Performans:</strong> Bir bilgisayar ağının performansı, yanıt süresi açısından ölçülür. Verimli bir ağda, bir cihazdan diğerine iletilen ve alınan verilerin yanıt süresi minimumdur.</li></ul><ul id="fd4f3456-a4d4-4c93-a30f-803ca9974410" class="bulleted-list"><li style="list-style-type:disc">(<strong>Data Sharing) Veri Paylaşımı:</strong> Farklı sistemler arasında bir bilgisayar ağı kullanmamızın ana nedenlerinden biridir.</li></ul><ul id="109e21c9-0297-4b83-b10f-2b606197717a" class="bulleted-list"><li style="list-style-type:disc">(<strong>Backup) Yedekleme:</strong> Bir bilgisayar ağı, bir arıza durumunda verilerin daha hızlı kurtarılabilmesi için paylaşılan tüm verileri yedeklemeli ve bu verileri sunucularda tutmalıdır.</li></ul><ul id="b63cd1c0-f805-4a1b-acde-46d06697a7fa" class="bulleted-list"><li style="list-style-type:disc">(<strong>Reliability )Güvenilirlik:</strong> Ağda herhangi bir arıza olmamalıdır, ancak meydana gelirse arızadan kurtarma hızlı olmalıdır.</li></ul><ul id="2fc68732-3a87-444e-a373-951e540bef57" class="bulleted-list"><li style="list-style-type:disc">(<strong>Security) Güvenlik:</strong> Bir bilgisayar ağı, bir ağ üzerinden değiş tokuş edilen verilerin yetkisiz erişime karşı güvenli olması için güvenli olmalıdır. Ayrıca, iletilen veriler herhangi bir kayıp olmadan alınmalıdır.</li></ul><ul id="d5ff5fdc-7cd5-48b9-9ec2-60fee3f3c93d" class="bulleted-list"><li style="list-style-type:disc">(<strong>Scalability)Ölçeklenebilirlik:</strong> Bir bilgisayar ağı ölçeklenebilir olmalıdır, mevcut bilgisayar ağına yeni cihazlar eklemek her zaman mümkün olmalıdır.</li></ul><ul id="bab65632-9250-4fc3-8f0f-cbb743716d8a" class="bulleted-list"><li style="list-style-type:disc">(<strong>Software and hardware compatibility)Yazılım ve donanım uyumluluğu:</strong> Bir bilgisayar ağı, tüm bilgisayarları aynı yazılım ve donanımı kullanacak şekilde sınırlamamalı, bunun yerine kullanıcıların ağ üzerinde farklı yazılım ve donanım yapılandırmalarını uyumluluk sorunu yaşamadan kullanmalarına izin vermelidir.</li></ul><h3 id="483d3602-55f9-4070-922b-790a7c33d810" class="">A.1- Yerel Alan Ağı (LAN)</h3><ul id="4ce2ce98-348f-495e-9c09-03a3455718ec" class="bulleted-list"><li style="list-style-type:disc">Adından da anlaşılacağı gibi, bir <strong>yerel alan ağı (LAN)</strong> , genellikle bir ofis binası, bir şirket ofisi içindeki tek bir departman ve hatta bir ev ofisi gibi belirli bir coğrafi konumu kapsamakla sınırlıdır.</li></ul><ul id="fb4ccc5d-60b3-4d1a-bf78-cac508aaee44" class="bulleted-list"><li style="list-style-type:disc">Ağları kolayca yönetmek için LAN&#x27;ları departman bölümlerine göre bölmek iyi bir fikirdir. Örneğin, <em>Muhasebe</em> için bir LAN ve <em>Pazarlama</em> için başka bir LAN oluşturabiliriz . Şekil iki ayrı LAN&#x27;ı göstermektedir.</li></ul><figure id="77287897-3ed1-41f8-9a19-7edb13bf630f" class="image"><a href="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%201.png"><img style="width:1240px" src="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%201.png"/></a></figure><ul id="ca4d6c23-ed5d-444b-9135-1de1c00ebafa" class="bulleted-list"><li style="list-style-type:disc">Yukarıdaki şekilde iki LAN vardır: Muhasebe ve Pazarlama. Marketing LAN&#x27;a bağlı herhangi bir cihaz, Marketing LAN içindeki kaynaklara, bu durumda sunuculara ve yazıcıya erişebilir. Bununla birlikte iki tane sorun var:</li></ul><ul id="705464d0-ce5e-4ad0-a3cf-2e3e6b453795" class="bulleted-list"><li style="list-style-type:disc">Kaynakları almak için LAN&#x27;a fiziksel olarak bağlı olmak gerekir.</li></ul><ul id="3c1ea3d4-1b1f-44cb-9d1f-cb54a3d1b571" class="bulleted-list"><li style="list-style-type:disc">Hiç kimse bir LAN&#x27;dan diğerine bağlanamaz.</li></ul><p id="2a50fe92-37c7-48c7-af22-f69643e9feb9" class="">Bu, aşağıda gösterildiği gibi iki LAN&#x27;ı bağlamak için <mark class="highlight-red">ROUTER</mark> adı verilen bir cihaz kullanılarak </p><p id="87e7460e-1c7b-449e-97a2-758d6d39411a" class="">kolayca çözülebilen tipik bir ağ sorunudur .</p><figure id="fdf8cd9c-4614-4b4d-bc0b-0a3853a30f25" class="image"><a href="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%202.png"><img style="width:1300px" src="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%202.png"/></a></figure><hr id="b4a4a644-96ec-4896-92ef-e66686e37d14"/><p id="4607732b-ea46-464c-b79f-5549cb3c5d91" class=""><em>İki LAN&#x27;lı bir ağ</em></p><hr id="0fe49f86-c279-4cda-b8dd-4a0bc8e143bc"/><p id="e644cc2a-8a22-48cb-99b0-608e715aa083" class="">Bir LAN, aşağıdaki faktörlere bağlı olarak diğerinden farklılık gösterir:</p><ul id="3d6438ce-9c79-436a-b8a1-2e2c8c3d34ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Topoloji: </strong>Ağ içindeki düğümlerin düzenlenmesi</li></ul><ul id="6c6431a5-745c-4880-a1da-9343927661b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Protokol:</strong>Veri aktarımı kurallarına bakın</li></ul><ul id="c4c60f82-294a-4c3c-a642-f7c387c0065a" class="bulleted-list"><li style="list-style-type:disc"><strong>Medya:</strong>Bu cihazlar optik fiberler, bükümlü çift teller vb. kullanılarak bağlanabilir.</li></ul><h3 id="84b24147-2f36-4261-81e5-8dd31b044d8d" class="">A.2-Common Network Components</h3><ul id="392ebc44-ccb7-4ca4-822c-64f393abb8a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Node, Stations, and Hosts: </strong><mark class="highlight-red"><strong>NODE</strong></mark><strong> , </strong>bir ağa bağlanabilen herhangi bir cihazdır.</li></ul><ul id="4a5b1dea-21e5-4d69-8ee7-8288fbade9e4" class="bulleted-list"><li style="list-style-type:disc"><strong> </strong><mark class="highlight-red"><strong>NODE</strong></mark> terimi , bilgisayarlar, dizüstü bilgisayarlar, sunucular, IP telefonlar, akıllı telefonlar veya yazıcılar gibi uç nokta cihazlarını ve anahtarlar ve yönlendiriciler gibi cihazları bağlama veya iletme işlemlerini tanımlamak için kullanılabilir.</li></ul><ul id="3e8ee789-275a-4d32-bc0d-57c10d8eb2ea" class="bulleted-list"><li style="list-style-type:disc">Kablosuz ağdaki bir  <mark class="highlight-red"><strong>NODE</strong></mark>  genellikle <mark class="highlight-blue"><strong>Stations</strong></mark><mark class="highlight-blue"> </mark>denir .</li></ul><ul id="83135ab6-28b8-4a84-870d-d336c188404f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange"><strong>Hosts</strong></mark> terimi , genellikle , ağ üzerinde benzersiz bir IP adresine sahip bir <em>bilgisayar</em> gibi bir <em>uç sistem cihazı</em> anlamına gelmek üzere <em>TCP/IP ağlarında</em> kullanılır .</li></ul><ul id="6f6093e0-0027-4bd4-91cb-5b0d5dcd52d6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>Workstations</strong></mark><strong>: </strong>İş istasyonu, bir uygulamayı veya sunucuyu dağıtmak için kullanılan bir istemci makinesidir. Genellikle birden fazla CPU&#x27;ya sahip güçlü bilgisayarlardır ve kaynakları ağdaki diğer kullanıcılar tarafından kullanılabilir.</li></ul><ul id="b2614f6c-a51e-460e-8215-57b7ece52037" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-purple"><strong>Servers</strong></mark><strong>: </strong>Sunucular aynı zamanda güçlü bilgisayarlardır. Ağın “hizmetindedirler” ve ağı korumak ve kontrol etmek için ağ işletim sistemi olarak bilinen özel yazılımları çalıştırırlar.</li></ul><ul id="106ff821-3f4c-4687-8f1e-0cc277908e69" class="bulleted-list"><li style="list-style-type:disc"><strong>File Server: </strong>Dosyaları depolar ve yönetir</li></ul><ul id="01764fc7-375c-4dd9-a41f-bb088ccbdc58" class="bulleted-list"><li style="list-style-type:disc"><strong>Mail Server: </strong>Ağın postanesi; e-posta işlevlerini yönetir</li></ul><ul id="27a3a866-0082-4f30-923d-426bf091fb72" class="bulleted-list"><li style="list-style-type:disc"><strong>Print Server: </strong>Ağdaki yazıcıları yönetir</li></ul><ul id="74b3fe8e-d4e0-4935-bbc4-aa3ee3332b84" class="bulleted-list"><li style="list-style-type:disc"><strong>Web Server: </strong>Web içeriğini depolamak ve web sayfalarına erişmek için Köprü Metni Aktarım Protokolü&#x27;nü (HTTP) çalıştırarak web tabanlı etkinlikleri yönetir</li></ul><ul id="afa55f87-597a-4e50-8c42-f62fb2e7878a" class="bulleted-list"><li style="list-style-type:disc"><strong>Application Server: </strong>Ağ uygulamalarını yönetir</li></ul><ul id="e996dc6d-19c1-4f95-a936-6c452a33abe8" class="bulleted-list"><li style="list-style-type:disc"><strong>Telephony Server: </strong>Çağrı merkezini ve çağrı yönlendirmeyi yönetir</li></ul><ul id="c12add2f-2563-47a1-a261-c76f247ec810" class="bulleted-list"><li style="list-style-type:disc"><strong>Proxy Server: </strong>Ağdaki diğer makinelerin, özellikle bir internet bağlantısının yerine görevleri gerçekleştirir.</li></ul><ul id="572b6af7-fc25-4560-b03e-a5e8afe30fac" class="bulleted-list"><li style="list-style-type:disc">Aşağıdaki şekilde, <mark class="highlight-teal"><strong>Workstations</strong></mark> ve <mark class="highlight-purple"><strong>Servers</strong></mark> oluşan bir ağ topolojisi görebilirsiniz. Ayrıca, ana bilgisayarların ağ üzerinden sunuculara erişebildiğine dikkat edin;<mark class="highlight-red"> bu, bir ağa sahip olmanın genel fikridir!</mark></li></ul><figure id="6e6dc40e-0494-45ea-8b26-89dcb7c636d3" class="image"><a href="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%203.png"><img style="width:1456px" src="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%203.png"/></a></figure><ul id="9142b754-0cad-43a2-8e7a-384659f9053f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-brown"><strong>Transmission Media: </strong></mark><strong>Ağ düğümleri arasında bir bağlantı, kablolar veya radyo dalgaları gibi bir tür iletim ortamı kullanılarak oluşturulur.</strong></li></ul><ul id="8f98e14f-8c87-40cd-9ad0-8fead5749f9b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink"><strong>Local Network Devices, Segments, and Backbones: </strong></mark>Ana bilgisayarları doğrudan bağlamak için nispeten az sayıda ağ kurulmuştur. Aralarındaki doğrudan bağlantılar yerine, her ana bilgisayar, bir <strong>switch</strong> veya <strong>wireless access point</strong> gibi merkezi  <mark class="highlight-red">NODE </mark>ile bağlanır . Merkezi <mark class="highlight-red">NODE</mark> bir yönlendirme işlevi sağlar, yani verileri bir <mark class="highlight-red">NODE</mark>den alır ve diğerlerine yeniden iletir.</li></ul><ul id="538b2902-0aaf-4b65-ae0f-24ecc657b681" class="bulleted-list"><li style="list-style-type:disc"> <mark class="highlight-yellow">S</mark><mark class="highlight-yellow"><strong>witch</strong></mark><strong> </strong>gibi merkezi bir cihaz , bağlı <mark class="highlight-red">NODE</mark>lerin aynı fiziksel ağın parçası olduğunu ve aynı tip iletim ortamını kullandığını ima eder.</li></ul><ul id="042e6cec-1b8d-46b5-bf88-afd165b7e3f1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">S</mark><mark class="highlight-gray"><strong>witching </strong></mark>terimi , aynı fiziksel ağ içinde gerçekleşen bu iletme işlevi için kullanılır. Aynı ağ içindeki arabirimlerin <strong>local addresses </strong>olarak tanımlanır .</li></ul><ul id="40c964c5-8ef8-4541-92dd-1d6232f4d732" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>Segment</strong></mark><mark class="highlight-red"> </mark>terimi , bir ağın belirli bir fiziksel bölgesine atıfta bulunmak için kullanılabilir, ancak bir segmentin kapsamı kullanılan tam teknolojiye bağlıdır.</li></ul><ul id="2cd14bce-d51c-4215-b52e-a78cf0550e20" class="bulleted-list"><li style="list-style-type:disc">Bir <mark class="highlight-pink"><strong>Backbones</strong></mark> ağının diğer <mark class="highlight-red">segmentler</mark> arasında hızlı bir bağlantı açıklar. Omurga, <mark class="highlight-red">NODE</mark>ler arasında meydana gelen tüm iletişimleri ayrı segmentlerde taşır.</li></ul><h2 id="d1a09492-e52a-4644-ab83-7779d8596a22" class="">B. Geniş Alan Ağı (WAN)</h2><ul id="55056f5b-498a-4045-95a0-4d50bf9e2d9a" class="bulleted-list"><li style="list-style-type:disc">Diğer uzak ağlara erişmemiz veya başkalarının LAN&#x27;ımıza erişmesine izin vermemiz gerektiğinde, bir <strong>WAN&#x27;a (Geniş Alan Ağı) ihtiyacımız vardır</strong> . Adından da anlaşılacağı gibi, WAN&#x27;lar <em>geniş coğrafi alanları kapsar</em> . Bu, iki şehir arasındaki bir ağ veya <strong>İnternet</strong> kadar büyük olabilir.</li></ul><figure id="4d44a9dc-fff8-4026-bfd7-d4d3b4f3fdef" class="image"><a href="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%204.png"><img style="width:1364px" src="NETWORK%2004e373a84556418f9fd7066a20264af8/Untitled%204.png"/></a></figure><p id="6c41a3fb-6bda-44a7-ad93-391fb4b1f594" class="">
+</p><ul id="5aa8f97a-1c29-4501-996f-609853ba9543" class="bulleted-list"><li style="list-style-type:disc"><strong>LAN</strong>&#x27;da kullandığımız baskın protokol <strong>Ethernet&#x27;</strong>tir. <strong>WAN</strong> için aralarından seçim yapabileceğimiz düzinelerce teknoloji ve protokol var.</li></ul><ul id="127c845c-ef88-4a59-a123-a67c0101a767" class="bulleted-list"><li style="list-style-type:disc">WAN&#x27;lar genellikle bir yönlendiriciye(<strong>router</strong>) ihtiyaç duyar.</li></ul><ul id="10d6b641-f07e-49b1-aae6-68f40c1210b8" class="bulleted-list"><li style="list-style-type:disc">WAN&#x27;lar daha geniş coğrafi alanları kapsar ve/veya çeşitli konumları birbirine bağlayabilir.</li></ul><ul id="ceb499e0-c38c-4d52-a482-a7a9e11e1b43" class="bulleted-list"><li style="list-style-type:disc">WAN&#x27;lar genellikle daha yavaştır.</li></ul><ul id="e79ff82c-f668-441c-921e-7c7a102c3a96" class="bulleted-list"><li style="list-style-type:disc">Bir WAN&#x27;a ne zaman ve ne kadar süreyle bağlanacağımızı seçebiliriz. Bir LAN ya hep ya hiçtir—iş istasyonumuz ona ya kalıcı olarak bağlıdır ya da hiç bağlanmaz.</li></ul><ul id="37ab6e13-a168-4f4f-9273-71c89606676d" class="bulleted-list"><li style="list-style-type:disc">WAN&#x27;lar, telefon hatları gibi özel veya genel veri taşıma ortamlarını kullanabilir.</li></ul><p id="cdb21173-bc66-4bee-996f-b0e329be8285" class="">
+</p><ul id="13a0712c-fc56-4888-8960-64fc018ed8a9" class="bulleted-list"><li style="list-style-type:disc">İnternet kelimesini internetwork teriminden alıyoruz. Ağlar arası ağlar, bir grup ağı veya intraneti birbirine bağlayan bir tür LAN ve/veya WAN&#x27;dır.</li></ul><ul id="703c40aa-c882-48cd-a885-71c591a3373b" class="bulleted-list"><li style="list-style-type:disc">Ağlar arası ağlarda, ana bilgisayarlar aynı LAN üzerindeki diğer ana bilgisayarlarla iletişim kurmak için hala donanım adreslerini kullanır.</li></ul><ul id="4fa5e3d8-ad21-4a6e-bb52-d49a5cabfdc5" class="bulleted-list"><li style="list-style-type:disc">Ancak, farklı bir LAN üzerindeki ana bilgisayarlarla iletişim kurmak için mantıksal adresleri (IP adresleri) kullanırlar. Ve yönlendiriciler bunu mümkün kılan cihazlardır.</li></ul><p id="270f3abc-1650-4c75-bfd8-a3f3bbc410fd" class="">
+</p></div></article></body></html>
