@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="still.css">
+    <style>
+        p{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Öncelikli CSS Kodu Uygulaması</h1>
+    <p style="color:green">Merhaba Dünya</p>
+</body>
+</html>
+
+
+
+
+<!--CSS Kod Uygulamasında Öncelik Sırası
+1)İnline (Satır İçi)
+2)İnternal(Sayfa İçi)
+3)External(Sayfa Dışı) -->
+
+<!--Yukarıda ki kod bloğunda paragraf tagı'na 
+    hem inline hem intrnal hemde still.css dosyasında external özelliği uygulandı.
+    Ancak Paragraf tagında ki Merhaba Dünya metni inline özelliğinde verilen 
+    green rengini aldı. Çinkü css kod önceliği ilk inline dadır.-->

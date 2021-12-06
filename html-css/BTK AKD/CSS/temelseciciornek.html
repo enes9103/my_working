@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:blue;
+        }
+        p{
+            color:red;
+        }
+        #ilk{
+            color:green;
+        }
+        #ikinci{
+            color:pink;
+        }
+        .c2{
+            color:blue;
+        }
+        .c1{
+            color:grey;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="c1">Temel Seçici Örnekleri</h1>
+    <h2>Başlık</h2>
+    <p class="c2" id="ilk">Merhaba Dünya</p>
+    <p id="ikinci">Nasılsınız Biz CSS Uygulama Yapıyoruz</p>
+</body>
+</html>
+
+<!--İnternal özelliği ile style*{color:red} yaptık ve özellik tüm sayfaya uygulandı-->
+
+<!--İnternal özelliği ile style p{color:blue} ve h1{color:yellow} yaptık ve özellik h1 başlıklarına ve paragraflara uygulandı-->
+
+<!--İnternal özelliği ile önce birinci paragrafa id="ilk", ikinci paragrafa id="ikinci" idlerini verdik
+    sonrasında internal ile style #ilk{color:green} ve #ikinci{color:pink} yaptık. özellik id atadığımız #ilk ve #ikinci paragraflarına uygulandı-->
+    
+<!--İnternal özelliği ile h1 başlığına class="c1" ve birinci paragrafa class="c2" class'larını atadık.
+    sonrasında internal ile style .c2{color:blue} ve .c1{color:grey} yaptık. h1 deki c1 tagı uygulandı ve h1 başlığı grey rengi aldı.
+    Ancak birinci pparagrafa atanan class=c2 style içinde atama yapmamıza rağmen uygulanmadı. Çünkü aynı paragrafa id 'de tanımlanmıştı.
+    id class tan öncelikli olduğu için id ile tanımlanmış özellik uygulanmış oldu.-->
