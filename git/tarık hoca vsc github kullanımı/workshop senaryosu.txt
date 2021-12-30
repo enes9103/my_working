@@ -1,0 +1,343 @@
+## Privat repolar repositories de bulunan repo sayisi 
+# arasinda görünmez
+
+## farkli bir hesaptan bir repoyu fork ettik
+
+## sirketlerde main branch i yaninda bir de test ve dev adinda 
+# yardimci ana branch ler olusturulur. Bunlarda ana branch
+# gibi kullanilir
+
+# simdi biz bu isimlerde github da iki branch daha olusturalim 
+
+## ancak dikkat, iki branch da main üzerinden ayrilmali 
+
+## yani ilk branch olusturulduktan sonra tekrar main e geciyoruz 
+
+## Not: bizim burada olusturdugumuz branch ler sadece su an icerisinde
+# oldugumuz repoya aittir. diger repolara gecis yaptigimizda
+## bu branch ler bulunmayacaktir
+
+## Not: repo clone lamadan baska bir alternatifimiz daha vardir.
+# repoyu download etmek. Bu durumda zip halde lokalimize indirilir
+# daha sonra biz bunu ayiklar ve kullanmaya baslariz.
+# ancak burada dikkat etmmemiz gereken husus, download etmede,
+# .git klasörü otomatik olarak calismaz. yani biz git init
+## komutunu kendimiz calistirmamiz gerekir
+
+
+# simdi bulundugumuz klasöre fork ettigimiz ve kendi remote
+# repomuza indirdigimiz repoyu clone lama islemi yapalim
+
+## Not: python üzerinden git calistirirken, icerisinde .git klasörü olmayan
+# bir klasör current directory olarak gösterilemez. Bu nedenle öncelikle;
+
+## Repo.clone_from("repo url adresi", "clonelanmak istenen adres")
+
+# komutu calistirilir.
+
+## Bu komut icerisinde bulundugumuz klasör icerisinde, clone ladigimiz klasör
+adinda bir klasör daha olusturur.
+
+# Bu islemden sonra clone ladigimiz reponun klasörü icerisine girmek icin ;
+
+## repo = git.Repo("current dir adresi komutu calistirilir")
+
+
+
+# not: github dan reponun url ini kopyalarken, dev branch de de olsak 
+# clone lama yaptiktan sonra lokal deki branch imiz main olur 
+# yani clone lama isleminden sonra lokalimizde sadece main branch 
+# mevcut olur 
+
+
+# simdi clone lama islemini yaptiktan sonra ls -al komutu ile 
+# remote dan gelen klasör kontrol edilir ve bu klasör icerisine girilir
+
+## Not: eger clone lamadan sonra, clone ladigimiz repo ile ayni isimde olan 
+# klasör icerisine giris yapmazsak hem branch leri göremeyiz hem de calismalarimizi
+# devam ettiremeyiz
+
+## git remote -v yaptigimizda remote da hangi repolarimizin oldugunu 
+## ve su an hangi repo ile islem yaptigimizi kontrol edebiliriz
+
+## Not: git config --system kullanirsak ayarlarimiz tüm kullanicilara ayni anda uygulanir
+
+## git config --lokal ise sadece dosya bazli, bir dosya icin gecerli 
+
+
+## git config --list komutu ile bilgilerimizi kontrol edelim
+
+
+## test.txt adinda dosya olusturalim 
+
+## git ile github arasindaki tüm islemler commitler üzerinden olur 
+# bu nedenle kayit etmek istedigimiz tüm degisiklikleri commit yapmamiz gerekir 
+
+
+## Not: biz  fork ve clone lama islemi yaptigimizdan dolayi,
+# önceden yapilan tüm commitlerde clone lama ile birlikte gelir.
+# yani biz git log yaptigimizda , önceden yapilan herseyi görebiliriz
+
+
+#  su an git log yaptigimizda, lokaldeki main remote dakine göre bir commit öndedir
+
+## simdi push yapalim 
+## sadece git push yazarsak; lokaldeki main den remote daki main e push et demek 
+
+## ayni zamanda git push origin main diyebiliriz 
+
+## su an push ettigimizde test.txt remote da sadece main branch de mevcuz olacaktir
+
+## su ana kadar ki calismamizda clone lama yöntemini gördük.
+# simdi diger bir yöntem görecegiz. Bu nedenle su an icerisinde 
+# calistigimiz klasörden cd .. ile bir üste cikacagiz ve
+# su an icinde calistigimiz dosyayi silecegiz 
+
+
+# .git klaösrü de silindigi icin su an uzak repo ile bir baglantimiz kalmadi 
+
+
+############################################
+
+# bir önceki yöntemde isleme uzak repodan baslamis ve 
+# uzaktaki repoyu kendimize cekmistik 
+
+# simdi ise islemlere lokalden baslayacagiz ve lokalden remote 'a dogru gidecegiz
+
+## simdi lokalimizde workshop adinda bir klasör olusturalim ve 
+# icerisine girelim 
+
+## burada git init yapalim 
+
+# eger simdi git branch yaparsak hata vermez ama herhangi bir branch de 
+# göstermez
+
+# git branch -r dersek yine su an birsey göremeyiz 
+
+
+## Python ile git calistirirken, icerisinde .git olmayan klaösr current dir 
+# olarak gösterilemez demistik. Bu nedenle, bu 2. yöntemde de manuel olarak
+# klaösrümüz icerisinde git init komutunu calistiriyoruz daha sonra
+
+## repo = git.Repo("current dir adresi") komutunu calistiriyoruz
+
+
+## simdi lokal ile remote arasindaki bagi kuracagiz 
+
+## Bunun icin git remote add origin url adress         komutunu kullaniyoruz 
+
+## dikkat: bu yaptigimiz islem ile sadece tek bir repo ile iletisim
+# baslatmis oluruz. github in tamamini degil .
+
+## Not: lokaldeki klasörümüz ile irtibat kuracagimiz uzak reponun adi 
+## ayni olmak zorunda degildir. ancak ayni isimde olursa karisiklik önlenir 
+
+# git remote add origin url adress 
+# bu komuttan sonra uzak repo ile iletisim kurulmus olur. Peki bunu nasil 
+# anlayabilirz ?
+
+## git remote -v komutu ile 
+
+# su an git branch yaptigimizda, henüz branch göremeyeceiz
+
+## Not: Calistigimiz klasör icerisine istedigimiz kadar remote repo baglayabilirz
+
+# bunun icin git remote add upstream url adres  kullaniriz 
+# buradaki upstream özel bir isimdir degisebilir 
+
+
+# Önemli:  Bu islemleri yaptiktan sonra, artik lokalde yaptigimiz degisiklikleri
+# istedigimiz repoya gönderebiliirz 
+# Bunun icin ilk tanitma esnasinda 
+# git push -u upstream main  komutu kullanilir 
+# burada upstream kod adli uzak reponun main branch ine gönderim yapar 
+# tabi ki bu reponun baska branchlerine de gönderim yapma sansimiz vardir 
+
+
+## ilk tanitimdan sonra baska bir degisiklik göndermek istersek o zamam
+# -u kullanmiyoruz,
+
+## git push upstream main diyoruz 
+
+
+# simdi remote taki dev branch deki bilgileri kendimize pull edelim 
+# git pull origin dev   komutunu kullaniyoruz 
+
+
+## git pull komutundan sonra lokalde master branch cikacaktir
+
+
+## simdi git branch komutunu calistiralim
+## sadece master branch oldugunu görecegiz 
+
+
+
+## simdi direkt olarak dev branch a gecis yapalim 
+## yani git checkout dev 
+
+# Not:  dev adinda branch olmamasina ragmen bu branch'e gecebildigimizi
+## görecegiz 
+
+
+## daha önce söyledigimiz gibi, bizler developer olarak dev ve test 
+## branch leri üzerinde de calisma yapamiyoruz.
+
+## Bu nedenle simdi kendi calismalarimiz icin lokalde feature adinda bir alt 
+## branch olusturacagiz ve buraya gececegiz (bu branch dev den ayrilir)
+
+## simdi lokal pc mizde calismalarimiza baslayabiliriz 
+
+
+## simdi readme dosyasina girip bir degisiklik yapiyoruz ve kaydediyoruz
+
+## add ve commit yapiyoruz 
+
+
+## bizim calismalarimiz esnasinda is arkadaslarimizdan bir tanesi 
+# github da dev branch'in de readme dosyasi üzerinde degisiklikler 
+# yapmis. bunu simule etmek icin github da readme üzerinde 
+# degisiklik yapiyoruz (dikkat dev branch de )
+
+
+## simdi uzak repo ile lokal repomuzu esitlemek icin önce 
+# lokal de dev brach'e geciyoruz ve remote repo daki 
+### dev branchteki degisiklikleri pull ediyoruz
+
+## bu islem icin git pull origin dev kullanyirouz
+
+# eger origin main dersek main deki degisiklikler gelir 
+
+
+## simdi lokal deki dev branch imiz remote ile eslestirildi
+# ve güncellendi 
+
+## su an tekrar feature branch'e gececegiz ve degisiklikleri 
+# feature branch'e merge edecegiz
+
+## Not: Burada amacimiz sudur:  biz developer olarak 
+# dev ve test brnchlerinde calisamiyoruz ve buralara kendi 
+# istekelrimize göre de gönderim yapamiyoruz 
+# yani biz feature branch inde calismalarimizi nihai noktya
+# ulastiracagiz ve en son lokaldeki feature branchi remote a göndererek
+# orada pull request olusturacagiz 
+
+
+## simdi git merge dev komutu calistirildiginda merge conflict cikacaktir 
+# bu conflit i ortadan kaldiracahgiz 
+
+## merge conflicti cözmeden önce, iki branch arasindaki farkliliklara bakalim 
+
+## bunun icin;
+# ya git diff feature dev 
+
+## yada git diff dev feature komutlarini kullaniyoruz 
+
+
+## simdi conflict'i giderelim ve add ile commit yapalim 
+
+##  Not: conflict giderildikten sonra commit yapmaz isek 
+# yaptiklarimizin bir anlami olmayacaktir 
+
+
+## simdi git log yaptigimizda feature branch inin lokaldeki 
+# ve remote daki dev branch lerinden bir commit ileride oldugumuzu 
+# görecegiz. Bunun sebebi merge conflictten sonra yaptigimiz commit dir 
+
+
+### Önemli Not:   Zamanda geriye dogru yolculuk yaptigimizda, tekrardan ileri bir  
+## tarih de olan commitleri görmek istedigimizde göremeyebiliriz, yada master branch e  
+## en son commit leri göremeyebiliriz. Bu problemi cözebilmek icin su islemi yapariz:
+
+# öncelikle master branch e geceriz
+## git merge komutundan sonra en son yapilan commitin ilk 5 haneli numarasini
+# kopyalayip yapistiiririz. (git log komutundan sonra cikan numaralarin ilk 5 hanesi)
+
+
+## Bu islemin ikinci bir alternatifi de sudur:
+# son commit feature branch'e ait oldugundan, öncelikle master branch'e 
+# geceriz, daha sonra git merge feature komutunu calistiririz ve böylece
+# master branch de en güncel hale gelmis olur 
+
+
+
+## su an feature branch üzerindeki tüm calismalarimiz sonlandi ve 
+# biz bu calismamizi uzak repo da main, test yada dev branch lere push edemeyiz
+## bu nedenle remote repoda feature adinda yeni bir branch olusturacagiz ve 
+## islemlerimizi o branch üzerine push edecegiz 
+
+
+# su an uzak repoda böyle bir branch olmadigi icin kullanacagimiz komut sudur:
+
+# git push -u origin feature 
+
+
+## bu islemden sonra feature branch icin uzak repo ile lokal repo 
+# arasindaki baglanti saglanmis oldu. yani su andan itibaren artik 
+##   git push -u   dememize gerek yok direkt olarak git push origin feature 
+# yada sadece git push yazmamiz yeterlidir 
+
+
+
+## simdi lokal de feature branch üzerinde iken test2.txt adinda bir dosya 
+# olusturalim ve commit yapip push yapalim 
+
+
+## simdi lokal pc deki tüm calismalarimizi remote repoya gönderdik ve
+# lokal pc miz ile yani git ile isimiz bitti.
+# artik bundan sonra remote repoda feature branch üzerindeki degisikliklrimizi
+# yine remote daki dev branch üzerine gönderecegiz 
+
+
+## simdi bir pull request olusturacagiz:
+# Dikkat: Pull request olustururken ok yönü sagdan solu gösterir
+# sol taraftaki branch degisikliklerin gönderilecegi branch dir 
+## sag taraftaki ise degisikliklerin kendisinden alinacagi branchtir
+
+
+# yani biz burada feature dan dev'e gönderim yapacagiz
+
+## simdi biz developer olarak islemlerimizi tammaladik ve pull request 
+# olusturduk. yani yaptigimiz calismalar bizim amirimizin kontrolüne sunuldu.
+
+
+# simdi ise amirimizin yapacagi kontrolü ve kabulü simule edecegiz 
+# yani merge pull request yapacagiz 
+
+
+## merge pull request yaparken "file changed" butonuna bastigimizda
+# yapilan degisiklikleri ve farkliliklari detayli olarak görebiliriz 
+# yani amirimiz bu farkliliklar arasindan hangisini isterse onu secebilir
+
+
+# dev branch de bulunan project manager imiz kontrolleri yapti ve 
+# onayladi .   simdi ise dev deki degisiklikler test branch e pull request yapilacak
+
+
+## simdi de kontrolü test branch ten sorumlu kisi yapacak ve merge pull request yapacaktir
+
+
+## simdi ise son olarak test den main branch e pull request olusturacagiz
+
+
+## Not: pull request'e kisaltma olarak pr da denilir
+
+
+## simdi kendi sirketimiz icerisindeki tüm calismalar tamamlandi
+# main branch imiz en güncel halinde bulunuyor 
+
+
+#  en son asama olarak, diger sirkete ait main branch'e bizim 
+# main branch imizde bulunan tüm degisiklikleri gönderiyoruz.
+## yani calismalarimiza ilk baslarken, fork islemi yaptigimiz repoya 
+## pull request olusturuyoruz 
+
+
+## bu yapilan pull request'i karsi sirketin reposundan kontrol edebiliriz 
+
+
+
+
+
+
+####         Thanks  :)
+
