@@ -1,6 +1,6 @@
 	/*2.SESSİON*/
 /*===================================================
-														LIMIT
+						LIMIT
 ====================================================*/
  	/*invoices tablosunda Total değeri 10$'dan büyük olan ilk 4 kayıt'ın InvoiceId, 
 	InvoiceDate ve total bilgilerini sorgulayiniz */
@@ -11,7 +11,7 @@
 	
 	
 /*===================================================
-													ORDER BY
+						ORDER BY
 ====================================================*/
 	
 	/*invoices tablosunda Total değeri 10$'dan büyük olan kayıtları Total değerine göre 
@@ -32,7 +32,7 @@
 	
 			
 /*===================================================
-								 LOGICAL OPERATORS (AND,OR,NOT)
+				LOGICAL OPERATORS (AND,OR,NOT)
 ====================================================*/
 
 	/* invoices tablosunda ülkesi (BillingCountry) USA olmayan kayıtları total değerine
@@ -69,7 +69,7 @@
 	
 	
 /*===================================================
-								                   IN
+						IN
 ====================================================*/
 	/* customers tablosunda Belgium, Norway veya  Canada ,USA  ülkelerinden sipariş veren
 		müşterilerin FirstName, LastName, country bilgilerini listeyiniz	*/
@@ -80,7 +80,7 @@
 	
 	
 /*===================================================
-								                    LIKE
+						LIKE
 ====================================================*/
 	/* tracks tablosunda Composer sutunu Bach ile biten kayıtların Name bilgilerini 
 	listeyen sorguyu yazınız*/
