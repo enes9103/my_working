@@ -264,7 +264,8 @@ from table name
 GROUP by column1;
 
 -- Not: grupladigimiz sütunu select kismina koymazsak
--- bu durumda sorgumuz anlamsiz olacaktir
+-- bu durumda sorgumuz anlamsiz olacaktir. Gruplandırdığımız
+-- veriyi görmek gerektiği için select'te de bulunmalıdır.
 
 -- Soru: her bir ülkenin supportid toplamini hesaplayalim
 
